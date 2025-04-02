@@ -1,0 +1,21 @@
+.section .data
+message:
+    .ascii "Hello, world!"
+    .byte 10
+len = . - message
+
+.section .text
+.globl _start
+
+_start:
+    # write(stdout, message, len)
+    mov    $1, %rax             # syscall: write (1)
+    mov    $1, %rdi             # file descriptor: stdout (1)
+    lea    message(%rip), %rsi  # pointer to the message
+    mov    $len, %rdx           # length of the message
+    syscall
+
+    # exit(0)
+    mov    $60, %rax            # syscall: exit (60)
+    xor    %rdi, %rdi           # status code 0
+    syscall
