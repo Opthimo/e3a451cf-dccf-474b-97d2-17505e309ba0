@@ -70,9 +70,14 @@ Without using a high-level programming-language.
 ## 3) Questions
 
 1. What does the value `10` at the end of the message represent?
+dec 10 is the ascii value aof newline (\n) an nonprntable character.
 2. Why must the length of the message be provided manually in `rdx`?
+cause the function doenst know where the ascii texts ends
 3. What happens if the length is incorrect (too short, too long)?
+too short = there will be missing chars at the end
+too long = 
 4. Is it possible to write non-ASCII binary data using `write`?
+Yes, when you use byte instead of ascii
 
 <details>
   <summary>Syscall Reference</summary>
